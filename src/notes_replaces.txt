@@ -1,0 +1,12 @@
+anfang:
+
+URL
+NAME
+
+
+einzelne events:
+SUMMARY           -- wichtig
+LOCATION
+
+|DESCRIPTION
+|URL
