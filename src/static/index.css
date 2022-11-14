@@ -1,0 +1,196 @@
+:root {
+    --background: black;
+    --secondary: rgb(255, 0, 255);
+    --text: white;
+}
+
+body {
+    margin: 0;
+    /* padding: 0; */
+    font-weight: 500;
+    Font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    
+    overflow: hidden;
+    height: 100vh;
+}
+
+main {
+    height: 100vh;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+}
+
+
+
+section {
+    scroll-snap-align: start;
+    min-width: 100%;
+    height: auto;
+    min-height: 100vh;
+    display: inline-block;
+    background-color: var(--background);
+    position: relative;
+}
+
+section:nth-of-type(2n) {
+    background-color: var(--secondary);
+}
+
+section:nth-of-type(2){
+    background-color: rgba(255,0,255,0.2);
+}
+
+section:nth-of-type(4){
+    background-color: rgba(255,0,255,0.2);
+}
+
+#myVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+#bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -2;
+}
+
+.landing {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    text-transform: uppercase;
+}
+
+.landing h1 span {
+    display: inline-block;
+    font-size: 18vw;
+    position: relative;
+    bottom: 0%;
+    
+    visibility: hidden;
+    animation-name: landing-fade;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes landing-fade {
+    
+    0% {
+        visibility: inherit;
+        opacity: 0;
+        bottom: -20%;
+    }
+
+    70% {
+        bottom: 5%;
+        opacity: 1;
+    }
+
+    100% {
+        /* opacity: 1; */
+        visibility: inherit;
+    }
+
+}
+
+.landing h1, .landing h2 {
+    margin: 0.1em;
+}
+
+.landing h2 {
+    --size: 12vw;
+    font-size: var(--size);
+    line-height: var(--size);
+    height: var(--size);
+    overflow: hidden;
+    color: var(--secondary);
+    animation: 1s opacity-change 2s ease forwards;
+    opacity: 0;
+}
+
+.landing h2 .slides {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    height: var(--size);
+    animation: 15s sliding-text 3s ease infinite;
+    text-align: center;
+}
+
+@keyframes opacity-change {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes sliding-text {
+    0%, 20% {
+        transform: translateY(0%)
+    }
+    20%, 40% {
+        transform: translateY(-100%)
+    }
+    40%, 60% {
+        transform: translateY(-200%)
+    }
+    60%, 80% {
+        transform: translateY(-300%)
+    }
+    80%, 95% {
+        transform: translateY(-400%)
+    }
+    95%, 100% {
+        transform: translateY(0%)
+    }
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    padding: 2rem;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 5vw;
+}
+
+.content h2 {
+    font-size: 2vw;
+}
+
+
+.github-link {
+    fill: var(--text);
+    color: var(--text);
+    transition: .5s;
+}
+.github-link:hover {
+    fill: var(--background);
+    color: var(--background);
+}
